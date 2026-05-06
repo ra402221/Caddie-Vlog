@@ -86,6 +86,10 @@ async function inicializarProductos() {
     }
 }
 
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando. API de productos disponible en /api/productos');
+});
+
 // ========== ENDPOINTS CRUD ==========
 
 // GET - Obtener todos
