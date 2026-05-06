@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, '../')));
 
 // ========== CONEXION A MONGODB ATLAS ==========
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -85,10 +85,6 @@ async function inicializarProductos() {
         console.error('Error al inicializar productos:', error);
     }
 }
-
-app.get('/', (req, res) => {
-    res.send('Servidor funcionando. API de productos disponible en /api/productos');
-});
 
 // ========== ENDPOINTS CRUD ==========
 
