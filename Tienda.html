@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Vlog del Caddie | Tienda de Golf</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        .hero-tienda {
+            background: #1e3a2f;
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        body.dark-mode .hero-tienda {
+            background: #0f0f1a;
+        }
+
+        .hero-tienda h2 {
+            color: #d4af37;
+            border-left: none;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-tienda p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .tienda-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .formulario-producto {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .formulario-producto {
+            background: #2a2a3a;
+        }
+
+        .formulario-producto h3 {
+            color: #1e5a3a;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-left: 4px solid #d4af37;
+            padding-left: 12px;
+        }
+
+        body.dark-mode .formulario-producto h3 {
+            color: #f39c12;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #1e5a3a;
+        }
+
+        body.dark-mode .form-group label {
+            color: #e0e0e0;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group select,
+        body.dark-mode .form-group textarea {
+            background: #3a3a4a;
+            border-color: #555;
+            color: white;
+        }
+
+        .productos-lista {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .productos-lista {
+            background: #2a2a3a;
+        }
+
+        .productos-lista h3 {
+            color: #1e5a3a;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-left: 4px solid #d4af37;
+            padding-left: 12px;
+        }
+
+        .header-tienda {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-refrescar {
+            background: #1e5a3a;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-refrescar:hover {
+            background: #0f3b24;
+        }
+
+        .producto-card {
+            border: 2px solid #e8f0e5;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 18px;
+            transition: all 0.3s;
+            background: #fef9e6;
+        }
+
+        body.dark-mode .producto-card {
+            background: #1e1e2e;
+            border-color: #3a3a4a;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #d4af37;
+        }
+
+        .producto-card h4 {
+            color: #1e5a3a;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        body.dark-mode .producto-card h4 {
+            color: #f39c12;
+        }
+
+        .producto-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .producto-precio {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+
+        .producto-stock {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .producto-stock.agotado {
+            color: #dc3545;
+        }
+
+        .botones-accion {
+            margin-top: 15px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-editar {
+            background: #ffc107;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-editar:hover {
+            background: #e0a800;
+        }
+
+        .btn-eliminar {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-eliminar:hover {
+            background: #c82333;
+        }
+
+        .btn-guardar {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-guardar:hover {
+            background: #218838;
+        }
+
+        .btn-actualizar {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-actualizar:hover {
+            background: #138496;
+        }
+
+        .btn-limpiar {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 12px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .btn-limpiar:hover {
+            background: #5a6268;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.1rem;
+            color: #1e5a3a;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #28a745;
+        }
+
+        .sin-productos {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        @media (max-width: 900px) {
+            .tienda-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <div class="header-contenido">
+                <div class="logo">
+                    <h1>El Vlog del Caddie</h1>
+                    <p>Consejos y secretos desde el green</p>
+                </div>
+                <div class="header-imagen">
+                    <img src="img/golf1.jpg" alt="Golfista profesional">
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav-principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tabla.html">Tabla</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="tienda.html" class="activo">Tienda</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero-tienda">
+                <h2>Tienda Oficial de Golf</h2>
+                <p>Los mejores articulos de golf al mejor precio | Gestiona tu inventario</p>
+            </section>
+
+            <div class="tienda-container">
+                <div class="formulario-producto">
+                    <h3 id="formTitle">Agregar Nuevo Producto</h3>
+                    <div id="mensaje"></div>
+                    <form id="productoForm">
+                        <input type="hidden" id="productoId" value="">
+                        
+                        <div class="form-group">
+                            <label for="nombre">Nombre del producto *</label>
+                            <input type="text" id="nombre" placeholder="Ej: Driver TaylorMade Qi10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoria">Categoria *</label>
+                            <select id="categoria" required>
+                                <option value="">Seleccione una categoria</option>
+                                <option value="Driver">Driver</option>
+                                <option value="Hierro">Hierro</option>
+                                <option value="Putter">Putter</option>
+                                <option value="Bolas">Bolas</option>
+                                <option value="Accesorios">Accesorios</option>
+                                <option value="Ropa">Ropa</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="precio">Precio (USD) *</label>
+                            <input type="number" id="precio" step="0.01" placeholder="0.00" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stock">Stock *</label>
+                            <input type="number" id="stock" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="marca">Marca *</label>
+                            <input type="text" id="marca" placeholder="Ej: TaylorMade, Callaway" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <textarea id="descripcion" rows="3" placeholder="Descripcion del producto..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-guardar" id="btnGuardar">Guardar Producto</button>
+                        <button type="button" class="btn-limpiar" id="btnLimpiar">Limpiar Formulario</button>
+                    </form>
+                </div>
+
+                <div class="productos-lista">
+                    <div class="header-tienda">
+                        <h3>Productos Disponibles</h3>
+                        <button class="btn-refrescar" id="btnRefrescar">Refrescar</button>
+                    </div>
+                    <div id="productosContainer">
+                        <div class="loading">Cargando productos...</div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="cita-destacada">
+                <blockquote>
+                    "El equipo adecuado marca la diferencia en tu juego. Encuentra los mejores productos aqui."
+                    <cite>El Vlog del Caddie</cite>
+                </blockquote>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 El Vlog del Caddie - Todos los derechos reservados</p>
+            <p>Tienda Oficial de Golf | Envios a todo el pais</p>
+        </footer>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <button class="btn-volver-arriba" id="btnVolverArriba">↑</button>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api/productos';
+
+        function mostrarMensaje(mensaje, tipo) {
+            const mensajeDiv = document.getElementById('mensaje');
+            mensajeDiv.innerHTML = `<div class="${tipo === 'success' ? 'success-message' : 'error-message'}">${mensaje}</div>`;
+            setTimeout(() => {
+                mensajeDiv.innerHTML = '';
+            }, 3000);
+        }
+
+        async function cargarProductos() {
+            const container = document.getElementById('productosContainer');
+            container.innerHTML = '<div class="loading">Cargando productos...</div>';
+            
+            try {
+                const response = await fetch(API_URL);
+                const productos = await response.json();
+                
+                if (productos.length === 0) {
+                    container.innerHTML = '<div class="sin-productos">No hay productos disponibles. Agrega uno nuevo.</div>';
+                    return;
+                }
+                
+                mostrarProductosEnHTML(productos);
+            } catch (error) {
+                console.error('Error:', error);
+                container.innerHTML = `<div class="error-message">Error de conexion. Asegurate que el servidor este corriendo en ${API_URL}</div>`;
+            }
+        }
+
+        function mostrarProductosEnHTML(productos) {
+            const container = document.getElementById('productosContainer');
+            
+            container.innerHTML = productos.map(producto => `
+                <div class="producto-card" data-id="${producto._id}">
+                    <h4>${producto.nombre}</h4>
+                    <div class="producto-info">
+                        <p><strong>Marca:</strong> ${producto.marca || 'No especificada'}</p>
+                        <p><strong>Categoria:</strong> ${producto.categoria || 'General'}</p>
+                    </div>
+                    <p class="producto-precio">$${(producto.precio || 0).toFixed(2)} USD</p>
+                    <p><strong>Stock:</strong> <span class="producto-stock ${(producto.stock || 0) === 0 ? 'agotado' : ''}">${producto.stock || 0} unidades</span></p>
+                    <p><strong>Descripcion:</strong> ${producto.descripcion || 'Sin descripcion'}</p>
+                    <div class="botones-accion">
+                        <button class="btn-editar" onclick="editarProducto('${producto._id}')">Editar</button>
+                        <button class="btn-eliminar" onclick="eliminarProducto('${producto._id}', '${producto.nombre}')">Eliminar</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function agregarProducto() {
+            const stockValue = parseInt(document.getElementById('stock').value);
+            if (stockValue < 0) {
+                mostrarMensaje('El stock no puede ser negativo', 'error');
+                return;
+            }
+
+            const producto = {
+                nombre: document.getElementById('nombre').value,
+                categoria: document.getElementById('categoria').value,
+                precio: parseFloat(document.getElementById('precio').value),
+                stock: stockValue,
+                marca: document.getElementById('marca').value,
+                descripcion: document.getElementById('descripcion').value
+            };
+            
+            if (!producto.nombre || !producto.categoria || !producto.marca) {
+                mostrarMensaje('Completa todos los campos obligatorios', 'error');
+                return;
+            }
+            
+            if (isNaN(producto.precio) || producto.precio <= 0) {
+                mostrarMensaje('El precio debe ser un numero positivo', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(producto)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    mostrarMensaje('Producto creado exitosamente', 'success');
+                    limpiarFormulario();
+                    cargarProductos();
+                } else {
+                    mostrarMensaje(data.error || 'Error al crear producto', 'error');
+                }
+            } catch (error) {
+                mostrarMensaje('Error de conexion', 'error');
+            }
+        }
+
+        window.editarProducto = async function(id) {
+            try {
+                const response = await fetch(`${API_URL}/${id}`);
+                const producto = await response.json();
+                
+                if (producto && producto._id) {
+                    document.getElementById('productoId').value = producto._id;
+                    document.getElementById('nombre').value = producto.nombre;
+                    document.getElementById('categoria').value = producto.categoria || '';
+                    document.getElementById('precio').value = producto.precio;
+                    document.getElementById('stock').value = producto.stock || 0;
+                    document.getElementById('marca').value = producto.marca || '';
+                    document.getElementById('descripcion').value = producto.descripcion || '';
+                    
+                    document.getElementById('formTitle').innerHTML = 'Editar Producto';
+                    document.getElementById('btnGuardar').innerHTML = 'Actualizar Producto';
+                    document.getElementById('btnGuardar').className = 'btn-actualizar';
+                    
+                    document.querySelector('.formulario-producto').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    mostrarMensaje('Producto no encontrado', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarMensaje('Error al cargar producto', 'error');
+            }
+        };
+
+        async function actualizarProducto(id) {
+            const stockValue = parseInt(document.getElementById('stock').value);
+            if (stockValue < 0) {
+                mostrarMensaje('El stock no puede ser negativo', 'error');
+                return;
+            }
+
+            const precioValue = parseFloat(document.getElementById('precio').value);
+            if (precioValue < 0) {
+                mostrarMensaje('El precio no puede ser negativo', 'error');
+                return;
+            }
+
+            const productoActualizado = {
+                nombre: document.getElementById('nombre').value,
+                categoria: document.getElementById('categoria').value,
+                precio: precioValue,
+                stock: stockValue,
+                marca: document.getElementById('marca').value,
+                descripcion: document.getElementById('descripcion').value
+            };
+            
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(productoActualizado)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    mostrarMensaje('Producto actualizado exitosamente', 'success');
+                    limpiarFormulario();
+                    cargarProductos();
+                } else {
+                    mostrarMensaje(data.error || 'Error al actualizar producto', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarMensaje('Error de conexion', 'error');
+            }
+        }
+
+        window.eliminarProducto = async function(id, nombre) {
+            if (confirm(`¿Estas seguro de que deseas eliminar "${nombre}"?`)) {
+                try {
+                    const response = await fetch(`${API_URL}/${id}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        mostrarMensaje('Producto eliminado exitosamente', 'success');
+                        cargarProductos();
+                        
+                        if (document.getElementById('productoId').value == id) {
+                            limpiarFormulario();
+                        }
+                    } else {
+                        mostrarMensaje('Error al eliminar producto', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    mostrarMensaje('Error de conexion', 'error');
+                }
+            }
+        };
+
+        function limpiarFormulario() {
+            document.getElementById('productoForm').reset();
+            document.getElementById('productoId').value = '';
+            document.getElementById('formTitle').innerHTML = 'Agregar Nuevo Producto';
+            document.getElementById('btnGuardar').innerHTML = 'Guardar Producto';
+            document.getElementById('btnGuardar').className = 'btn-guardar';
+        }
+
+        document.getElementById('btnRefrescar').addEventListener('click', () => {
+            cargarProductos();
+        });
+
+        document.getElementById('btnLimpiar').addEventListener('click', () => {
+            limpiarFormulario();
+        });
+
+        document.getElementById('productoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const productoId = document.getElementById('productoId').value;
+            
+            if (productoId) {
+                await actualizarProducto(productoId);
+            } else {
+                await agregarProducto();
+            }
+        });
+
+        cargarProductos();
+    </script>
+    <script src="js/funciones.js"></script>
+</body>
+</html>

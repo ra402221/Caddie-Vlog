@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Vlog del Caddie | Inicio</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <div class="header-contenido">
+                <div class="logo">
+                    <h1>El Vlog del Caddie</h1>
+                    <p>Consejos y secretos desde el green</p>
+                </div>
+                <div class="header-imagen">
+                    <img src="img/golf1.jpg" alt="Golfista profesional">
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav-principal">
+            <ul>
+                <li><a href="index.html" class="activo">Inicio</a></li>
+                <li><a href="tabla.html">Tabla</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <h2>Bienvenido al Fairway rookie</h2>
+                <blockquote>
+                    "El golf es el deporte mas cercano a la perfeccion que he conocido"
+                    <cite>- Arnold Palmer</cite>
+                </blockquote>
+            </section>
+
+            <!-- NUEVA SECCION: EXPLICACION DEL GOLF -->
+            <section class="explicacion-golf">
+                <h2>¿Que onda con el Golf?</h2>
+                <div class="contenido-explicacion">
+                    <p>El golf es un deporte de precision cuyo objetivo es introducir una bola en los hoyos dispuestos a lo largo del campo con el menor numero de golpes posibles, utilizando para cada golpe diferentes palos. Al igual que en la mayoria de los deportes, el objetivo es completar el recorrido en el menor numero de intentos.</p>
+                    <p>Se juega en un campo de 18 hoyos (aunque existen campos de 9 hoyos), cada uno con su propia dificultad. El golf es unico porque no existe un campo de juego estandarizado, cada campo es diferente y presenta sus propios desafios.</p>
+                    <p>Para los principiantes o rookies, el golf puede parecer complicado al principio, pero con practica y paciencia, se convierte en un deporte apasionante que combina tecnica, estrategia y control mental.</p>
+                </div>
+            </section>
+
+            <!-- CARRUSEL DE IMAGENES -->
+            <section class="carrusel-seccion">
+                <h2>Lo mejor del Golf</h2>
+                <div class="carrusel-container">
+                    <div class="carrusel-slides" id="carruselSlides">
+                        <div class="carrusel-slide">
+                            <img src="img/golf6.jpg" alt="Campo de golf">
+                        </div>
+                        <div class="carrusel-slide">
+                            <img src="img/golf2.jpg" alt="Golfista swing">
+                        </div>
+                        <div class="carrusel-slide">
+                            <img src="img/golf3.jpg" alt="Green y bandera">
+                        </div>
+                        <div class="carrusel-slide">
+                            <img src="img/golf4.jpg" alt="Campo de golf">
+                        </div>
+                        <div class="carrusel-slide">
+                            <img src="img/golf1.jpg" alt="Campo de golf">
+                        </div>
+                    </div>
+                    <button class="btn-carrusel prev" id="prevBtn">❮</button>
+                    <button class="btn-carrusel next" id="nextBtn">❯</button>
+                </div>
+            </section>
+
+            <!-- GALERIA INTERACTIVA -->
+            <section class="galeria-seccion">
+                <h2>Let them cook</h2>
+                <div class="galeria-container">
+                    <div class="imagen-principal">
+                        <img id="imagenPrincipal" src="img/golf 12.jpg" alt="Imagen principal">
+                    </div>
+                    <div class="miniaturas" id="miniaturas">
+                        <img class="miniatura activa" src="img/golf7.jpg" data-img="img/golf7.jpg" alt="Campo 1">
+                        <img class="miniatura" src="img/golf8.jpg" data-img="img/golf8.jpg" alt="Augusta">
+                        <img class="miniatura" src="img/golf9.jpg" data-img="img/golf9.jpg" alt="Green">
+                        <img class="miniatura" src="img/Golf10.jpg" data-img="img/Golf10.jpg" alt="Driver">
+                        <img class="miniatura" src="img/golf11.jpg" data-img="img/golf11.jpg" alt="Bola de golf">
+                    </div>
+                </div>
+            </section>
+
+            <!-- LISTA DINAMICA -->
+            <section class="lista-dinamica">
+                <h3>Mi lista de tips pendientes</h3>
+                <div class="agregar-elemento">
+                    <input type="text" id="nuevoItem" placeholder="Ej: Practicar putts de 3 metros">
+                    <button class="btn-agregar" id="btnAgregar">+ Agregar tip</button>
+                </div>
+                <ul class="lista-items" id="listaItems">
+                    <li>Practicar grip cada manana <button class="btn-eliminar">Eliminar</button></li>
+                    <li>Ver video de tecnica de swing <button class="btn-eliminar">Eliminar</button></li>
+                </ul>
+            </section>
+
+            <!-- QUIZ / CONTADOR DE RESPUESTAS -->
+            <section class="quiz-container">
+                <h3>Cuanto sabes de golf</h3>
+                <div id="quizPreguntas">
+                    <div class="pregunta" data-pregunta="1">
+                        <p>1. Cual es el numero maximo de palos permitidos en una bolsa de golf</p>
+                        <div class="opciones">
+                            <label><input type="radio" name="p1" value="10"> 10</label>
+                            <label><input type="radio" name="p1" value="12"> 12</label>
+                            <label><input type="radio" name="p1" value="14"> 14</label>
+                            <label><input type="radio" name="p1" value="16"> 16</label>
+                        </div>
+                    </div>
+                    <div class="pregunta" data-pregunta="2">
+                        <p>2. Como se llama el area donde se juega el golf</p>
+                        <div class="opciones">
+                            <label><input type="radio" name="p2" value="cancha"> Cancha</label>
+                            <label><input type="radio" name="p2" value="field"> Field</label>
+                            <label><input type="radio" name="p2" value="green"> Green</label>
+                            <label><input type="radio" name="p2" value="fairway"> Fairway</label>
+                        </div>
+                    </div>
+                    <div class="pregunta" data-pregunta="3">
+                        <p>3. Que significa birdie</p>
+                        <div class="opciones">
+                            <label><input type="radio" name="p3" value="+1"> Un golpe sobre par</label>
+                            <label><input type="radio" name="p3" value="-1"> Un golpe bajo par</label>
+                            <label><input type="radio" name="p3" value="0"> Par</label>
+                            <label><input type="radio" name="p3" value="-2"> Dos golpes bajo par</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="contador-respuestas" id="contadorRespuestas">
+                    Respuestas seleccionadas: 0 / 3
+                </div>
+            </section>
+
+            <!-- BOTON ME GUSTA -->
+            <section class="like-container">
+                <h3>Te gusta El Vlog del Caddie</h3>
+                <button class="btn-like" id="btnLike">Me gusta</button>
+                <div class="like-count" id="likeCount">0 likes</div>
+            </section>
+
+            <section class="consejos-destacados">
+                <h2>Consejos del Dr. Chipinski</h2>
+                
+                <article class="tarjeta-consejo">
+                    <h3>El grip correcto</h3>
+                    <p>El agarre es fundamental para un swing consistente. <q>Las manos deben trabajar como una unidad</q>, dice el entrenador Jose Maria.</p>
+                </article>
+
+                <article class="tarjeta-consejo">
+                    <h3>Postura y alineacion</h3>
+                    <p>La espalda recta y las rodillas ligeramente flexionadas. <q>La alineacion es el 50 por ciento del exito del golpe</q>.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 El Vlog del Caddie - Todos los derechos reservados</p>
+            <p><a href="https://www.pga.com" target="_blank" class="enlace-externo">Visitar PGA Tour</a> | 
+               <a href="https://www.rg.org" target="_blank" class="enlace-externo">The R&A</a></p>
+        </footer>
+    </div>
+
+    <!-- Botones flotantes -->
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <button class="btn-volver-arriba" id="btnVolverArriba">↑</button>
+
+    <script src="js/funciones.js"></script>
+    
+</body>
+</html>

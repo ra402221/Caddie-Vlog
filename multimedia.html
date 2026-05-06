@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Vlog del Caddie | Multimedia</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <div class="header-contenido">
+                <div class="logo">
+                    <h1>El Vlog del Caddie</h1>
+                    <p>Consejos y secretos desde el green</p>
+                </div>
+                <div class="header-imagen">
+                    <img src="img/golf1.jpg" alt="Golfista profesional">
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav-principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tabla.html">Tabla</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+                <li><a href="multimedia.html" class="activo">Multimedia</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero-multimedia">
+                <h2>¿Como es que se hace?</h2>
+                <p>Mejora tu tecnica con nuestros videos y audios exclusivos para rookies</p>
+            </section>
+
+            <!-- SECCION DE VIDEO DESTACADO -->
+            <section class="explicacion-golf">
+                <h2>Video Tutorial: Pegale 300 al Driver</h2>
+                <div class="contenido-explicacion">
+                    <p>Aprende la mecanica del swing con nuestro coach invitado. En este video, el entrenador profesional Rory Mcllroy te enseña los fundamentos basicos para mejorar tu tecnica desde cero.</p>
+                </div>
+                <div class="video-destacado">
+                    <video controls poster="img/golf1.jpg">
+                        <source src="video/golf-tips.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                <div class="video-descripcion">
+                    <p><q>La muñeca debe estar firme en el impacto y la cabeza debe mantenerse quieta durante todo el movimiento</q> — <cite>Coach Rory Mcllroy</cite></p>
+                </div>
+            </section>
+
+            <!-- SECCION DE PODCAST CON TU AUDIO -->
+            <section class="explicacion-golf">
+                <h2>¡Que lindo suena!</h2>
+                <div class="contenido-explicacion">
+                    <p>Escucha nuestro ultimo Audio de un impacro perfecto con el Driver . Haz clic en el reproductor para empezar a escuchar.</p>
+                </div>
+                <div class="audio-destacado">
+                    <audio controls>
+                        <source src="audio/audiogolf-swing.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+                <div class="audio-descripcion">
+                    <p>Driver Taylor Made Qi 4D 2026 — <cite>Grabado en el campo de Pebble Beach, California</cite></p>
+                </div>
+            </section>
+
+            <!-- GALERIA DE CAMPOS RECOMENDADOS CON IMAGENES -->
+            <section class="explicacion-golf">
+                <h2>Campos de golf recomendados</h2>
+                <div class="contenido-explicacion">
+                    <p>Estos son los tres campos mas emblematicos que todo golfista deberia conocer y visitar al menos una vez en la vida.</p>
+                </div>
+                <div class="lista-campos-mejorada">
+                    <div class="campo-item">
+                        <div class="campo-imagen">
+                            <img src="img/golf13.jpg" alt="Augusta National Golf Club">
+                        </div>
+                        <div class="campo-numero">1</div>
+                        <div class="campo-info">
+                            <h4>Augusta National Golf Club</h4>
+                            <p>Augusta, Georgia, Estados Unidos - Sede del Masters Tournament, famoso por sus azaleas y el hoyo 12.</p>
+                        </div>
+                    </div>
+                    <div class="campo-item">
+                        <div class="campo-imagen">
+                            <img src="img/golf14.jpg" alt="St. Andrews Links">
+                        </div>
+                        <div class="campo-numero">2</div>
+                        <div class="campo-info">
+                            <h4>St. Andrews Links (Old Course)</h4>
+                            <p>Fife, Escocia - Conocido como "La Cuna del Golf", es el campo mas antiguo del mundo (1552).</p>
+                        </div>
+                    </div>
+                    <div class="campo-item">
+                        <div class="campo-imagen">
+                            <img src="img/golf15.jpg" alt="Real Club Valderrama">
+                        </div>
+                        <div class="campo-numero">3</div>
+                        <div class="campo-info">
+                            <h4>Real Club Valderrama</h4>
+                            <p>Sotogrande, Cadiz, España - Considerado el mejor campo de Europa Continental.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CITA DESTACADA -->
+            <section class="cita-destacada">
+                <blockquote>
+                    "El sonido del putter al hundir la bola en el hoyo es el sonido mas adictivo del deporte. Una vez que lo escuchas, nunca puedes dejarlo."
+                    <cite>Golfista anonimo</cite>
+                </blockquote>
+            </section>
+
+            <!-- ENLACES EXTERNOS -->
+            <div class="enlaces-externos-multimedia">
+                <p>Visita estos sitios oficiales para mas contenido:</p>
+                <a href="https://www.pgatour.com" target="_blank" class="enlace-externo">PGA Tour Oficial</a> | 
+                <a href="https://www.masters.com" target="_blank" class="enlace-externo">The Masters</a> |
+                <a href="https://www.randa.org" target="_blank" class="enlace-externo">The R&A</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 El Vlog del Caddie - Todos los derechos reservados</p>
+            <p>Siguenos en YouTube, Spotify e Instagram | Todos los contenidos son originales</p>
+        </footer>
+    </div>
+
+    <!-- Botones flotantes -->
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <button class="btn-volver-arriba" id="btnVolverArriba">↑</button>
+
+    <script src="js/funciones.js"></script>
+</body>
+</html>
