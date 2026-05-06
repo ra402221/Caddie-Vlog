@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(pathjoin(__dirname, './')));
 
 // ========== CONEXION A MONGODB ATLAS ==========
 const MONGODB_URI = process.env.MONGODB_URI;
